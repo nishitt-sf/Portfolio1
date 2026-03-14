@@ -378,6 +378,7 @@
 </section>
 {% endif %}
 
+
 <!-- ══════════════════ FEATURED PROJECTS ══════════════════ -->
 {% if featured_projects %}
 <section class="py-5">
@@ -483,6 +484,42 @@
           <div class="service-icon"><i class="bi {{ service.icon }}"></i></div>
           <h5 class="fw-bold mb-2">{{ service.title }}</h5>
           <p style="color:var(--text-muted);font-size:0.9rem;line-height:1.7;margin:0">{{ service.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ══════════════════ CERTIFICATES ══════════════════ -->
+{% if certificates %}
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-badge">Achievements</div>
+      <h2 class="display-6 fw-bold">Certificates & <span class="gradient-text">Awards</span></h2>
+      <div class="divider-line"></div>
+    </div>
+    <div class="row g-4">
+      {% for cert in certificates %}
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0 }}00">
+        <div class="card p-4 h-100" style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;background:linear-gradient(135deg,rgba(255,171,0,0.2),rgba(255,101,132,0.1))">
+              <i class="bi bi-award-fill fs-4" style="color:#FFD700"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-0">{{ cert.title }}</h6>
+              <small style="color:var(--text-muted)">{{ cert.issuer }}</small>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="small" style="color:var(--text-muted)"><i class="bi bi-calendar3 me-1"></i>{{ cert.date|date:"M Y" }}</span>
+            {% if cert.credential_url %}
+            <a href="{{ cert.credential_url }}" class="btn btn-sm btn-outline-primary" target="_blank">View <i class="bi bi-arrow-up-right ms-1"></i></a>
+            {% endif %}
+          </div>
         </div>
       </div>
       {% endfor %}

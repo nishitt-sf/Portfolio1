@@ -12,6 +12,7 @@ def home(request):
     skills = Skill.objects.all()[:10]
     testimonials = Testimonial.objects.filter(featured=True)[:4]
     experiences = Experience.objects.all()
+    certificates = Certificate.objects.all()
     is_fresher = not experiences.exists()
     return render(request, 'main/home.html', {
         'profile': profile,
@@ -20,6 +21,7 @@ def home(request):
         'skills': skills,
         'testimonials': testimonials,
         'experiences': experiences,
+        'certificates': certificates,
         'is_fresher': is_fresher,
         'fresher_points': ['Strong academics', 'Hands-on projects', 'Quick learner', 'Latest tech trends', 'Open to mentorship', 'Team player'],
     })
