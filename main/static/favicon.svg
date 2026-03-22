@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#6C63FF" rx="40"/>
+  
+  <!-- Portfolio bracket/code theme -->
+  <g transform="translate(50, 50)">
+    <!-- Left bracket -->
+    <path d="M 30 10 L 15 10 L 15 80 L 30 80" stroke="#FFFFFF" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Right bracket -->
+    <path d="M 70 10 L 85 10 L 85 80 L 70 80" stroke="#FF6584" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Center dot -->
+    <circle cx="50" cy="45" r="6" fill="#FFFFFF"/>
+  </g>
+</svg>
