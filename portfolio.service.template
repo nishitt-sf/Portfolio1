@@ -1,0 +1,38 @@
+# Systemd service file for Gunicorn + Django Portfolio
+# Place this at: /etc/systemd/system/portfolio.service
+# Then run: sudo systemctl enable portfolio
+#          sudo systemctl start portfolio
+#          sudo systemctl status portfolio
+
+[Unit]
+Description=Gunicorn Application Server for Django Portfolio
+After=network.target
+
+[Service]
+Type=notify
+User=portfolio
+Group=www-data
+WorkingDirectory=/home/portfolio/app
+Environment="PATH=/home/portfolio/venv/bin"
+Environment="DJANGO_SETTINGS_MODULE=portfolio.settings_production"
+
+# Load environment variables from .env
+EnvironmentFile=/home/portfolio/app/.env
+
+# Start command
+ExecStart=/home/portfolio/venv/bin/gunicorn \
+    --config /home/portfolio/app/gunicorn_config.py \
+    --workers 4 \
+    --bind unix:/run/gunicorn/portfolio.sock \
+    portfolio.wsgi:application
+
+# Auto-restart
+Restart=on-failure
+RestartSec=10
+
+# Security
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,12 +1,6 @@
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-django-venv/
+# .gitignore — Django Portfolio
+
+# ===== Python & Virtual Environments =====
 __pycache__/
 *.py[cod]
 *$py.class
@@ -24,17 +18,53 @@ parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ===== Django =====
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-media/
-htmlcov/
+/media
+/staticfiles
+/static
+
+# ===== Environment Files =====
+.env
+.env.local
+.env.*.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ===== IDE & Editors =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+*.sublime-project
+*.sublime-workspace
+.vim/
+.netrwhist
+
+# ===== OS Files =====
+thumbs.db
+.directory
+.Trash
+
+# ===== Testing & Coverage =====
 .tox/
 .nox/
 .coverage
@@ -43,11 +73,26 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
 .hypothesis/
 .pytest_cache/
-cover/
-*.mo
+
+# ===== Node (if using frontend build tools) =====
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ===== Backups =====
+*.bak
+*.tmp
+*.backup
+
+# ===== Logs =====
+logs/
+
+# ===== Secrets =====
+secrets/
+*.pem
+*.key
 *.pot
 .vscode/
 .idea/
